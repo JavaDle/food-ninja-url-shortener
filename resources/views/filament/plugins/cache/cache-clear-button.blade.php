@@ -1,0 +1,10 @@
+<x-filament::dropdown.list.item
+    wire:click="clearCache"
+    wire:loading.attr="disabled"
+    wire:loading.class="opacity-50"
+    icon="heroicon-o-trash"
+    iconColor="danger"
+    :spa-mode="true"
+>
+    @lang('admin.cache_clear')
+</x-filament::dropdown.list.item>

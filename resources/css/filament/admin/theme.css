@@ -1,0 +1,234 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+@import '../../app.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto
+    }
+}
+
+:root {
+    --theme-page-bg: #e2e8f0;
+}
+
+.dark {
+    --theme-page-bg: #0f0f10;
+}
+
+body {
+    background-color: var(--theme-page-bg);
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    @apply bg-white;
+    border-radius: 6px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    &:where(.dark, .dark *) {
+        background-color: #18181b;
+    }
+}
+
+*::-webkit-scrollbar-thumb {
+    @apply bg-gray-800;
+    border-radius: 6px;
+    border: 2px solid #f0f0f0; /* отступ внутри дорожки */
+
+    &:where(.dark, .dark *) {
+        background-color: #18181b;
+    }
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-950;
+
+    &:where(.dark, .dark *) {
+        background-color: #18181b;
+    }
+}
+
+.fi-main {
+    @media (width >= 64rem) {
+        padding-inline: calc(var(--spacing) * 3);
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .fi-header {
+        @apply bg-white p-4 rounded-xl shadow-sm;
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+        --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+        --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+        --tw-ring-color: color-mix(in oklab, var(--gray-950) 5%, transparent);
+
+        &:where(.dark, .dark *) {
+            background-color: #18181b;
+            --tw-ring-color: color-mix(in srgb, #fff 10%, transparent);
+            @supports (color: color-mix(in lab, red, red)) {
+                --tw-ring-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+            }
+        }
+    }
+
+    @layer components {
+        [wire\:name="Filament\\Livewire\\Sidebar"] {
+            position: relative;
+            padding-block: calc(var(--spacing) * 3);
+            padding-left: calc(var(--spacing) * 3);
+        }
+    }
+
+    .fi-main-sidebar {
+        @apply bg-white rounded-xl shadow-sm;
+        height: calc(100vh - 6.3rem);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+        --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+        --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+        --tw-ring-color: color-mix(in oklab, var(--gray-950) 5%, transparent);
+
+        &:where(.dark, .dark *) {
+            background-color: #18181b;
+            --tw-ring-color: color-mix(in srgb, #fff 10%, transparent);
+            @supports (color: color-mix(in lab, red, red)) {
+                --tw-ring-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+            }
+        }
+
+        .fi-sidebar-nav {
+            padding-block: calc(var(--spacing) * 3);
+            scrollbar-gutter: auto;
+        }
+    }
+
+    .fi-main {
+        /*overflow-y: auto;*/
+        /*height: 100vh;*/
+        /*padding-inline: calc(var(--spacing) * 3);*/
+    }
+
+    .fi-page-header-main-ctn {
+        row-gap: calc(var(--spacing) * 3);
+        padding-block: calc(var(--spacing) * 3);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .fi-page-header-main-ctn {
+        padding-block: calc(var(--spacing) * 2);
+    }
+}
+
+.fi-topbar-ctn {
+    padding-top: calc(var(--spacing) * 3);
+    padding-left: calc(var(--spacing) * 3);
+    padding-right: calc(var(--spacing) * 3);
+
+    .fi-topbar {
+        border-radius: var(--radius-xl);
+    }
+}
+
+
+.fi-sidebar-item {
+    &:hover a {
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+        --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+        --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+        --tw-ring-color: color-mix(in oklab, var(--gray-950) 5%, transparent);
+
+        &:where(.dark, .dark *) {
+            --tw-ring-color: color-mix(in srgb, #fff 10%, transparent);
+            @supports (color: color-mix(in lab, red, red)) {
+                --tw-ring-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+            }
+        }
+    }
+
+    &.fi-active {
+        & a,
+        &:hover a {
+            box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+            --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+            --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+            --tw-ring-color: color-mix(in oklab, var(--gray-950) 5%, transparent);
+
+            &:where(.dark, .dark *) {
+                --tw-ring-color: color-mix(in srgb, #fff 10%, transparent);
+                @supports (color: color-mix(in lab, red, red)) {
+                    --tw-ring-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+                }
+            }
+        }
+    }
+}
+
+.fi-circular img {
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    --tw-ring-color: color-mix(in oklab, var(--gray-950) 5%, transparent);
+
+    &:where(.dark, .dark *) {
+        background-color: #18181b;
+        --tw-ring-color: color-mix(in srgb, #fff 10%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+            --tw-ring-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+        }
+    }
+}
+
+.fi-sidebar-database-notifications-btn,
+.fi-dropdown-trigger {
+    @apply rounded-xl shadow-sm;
+    background-color: var(--gray-50);
+
+    &:where(.dark, .dark *) {
+        background-color: color-mix(in srgb, #fff 5%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+            background-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+        }
+    }
+}
+
+.fi-sc.fi-sc-has-gap {
+    gap: calc(var(--spacing) * 3);
+}
+
+.fi-sidebar-header-ctn {
+    margin-top: 0.5rem;
+}
+
+.fi-sidebar-header-ctn {
+    display: flex;
+    justify-content: center;
+}
+
+.fi-breadcrumbs {
+    margin-bottom: unset;
+}
+
+.fi-header-actions-ctn {
+    margin-top: unset;
+}
+
+.fi-body {
+    &.fi-body-has-sidebar-collapsible-on-desktop,
+    &.fi-body-has-sidebar-fully-collapsible-on-desktop {
+        & .fi-main-ctn {
+            min-height: calc(100dvh - 5rem);
+        }
+    }
+}
+
+.fi-global-search-ctn {
+    margin-inline-start: calc(var(--spacing) * 3);
+}
