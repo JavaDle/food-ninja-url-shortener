@@ -29,7 +29,8 @@ class LinksTable
 
                 AdminTextColumn::make('user.name')
                     ->label(trans('admin.user'))
-                    ->description(fn($record) => $record->user->email),
+                    ->description(fn($record) => $record->user->email)
+                    ->visible(auth()->user()->isAdmin()),
 
                 AdminTextColumn::make('title'),
 
