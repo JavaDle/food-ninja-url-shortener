@@ -35,7 +35,7 @@ class LinkStatsOverview extends StatsOverviewWidget
 
         $visitsTrend = $this->clicksTrend();
 
-        return [
+        $stats = [
             Stat::make(trans('admin.total_links'), number_format($totalLinks))
                 ->description(trans('admin.active_links_count', ['count' => $activeLinks]))
                 ->descriptionIcon(Heroicon::Link)
@@ -51,12 +51,18 @@ class LinkStatsOverview extends StatsOverviewWidget
                 ->description($this->comparisonLabel($visitsToday, $visitsYesterday))
                 ->descriptionIcon($visitsToday >= $visitsYesterday ? Heroicon::ArrowTrendingUp : Heroicon::ArrowTrendingDown)
                 ->color($visitsToday >= $visitsYesterday ? 'success' : 'danger'),
-
-            Stat::make(trans('admin.users'), number_format(User::query()->count()))
-                ->description(trans('admin.registered_in_system'))
-                ->descriptionIcon(Heroicon::Users)
-                ->color('gray'),
         ];
+
+        if (auth()->user()->isAdmin()) {
+            $stats = [
+                Stat::make(trans('admin.users'), number_format(User::query()->count()))
+                    ->description(trans('admin.registered_in_system'))
+                    ->descriptionIcon(Heroicon::Users)
+                    ->color('gray'),
+            ];
+        }
+
+        return $stats;
     }
 
     /**
