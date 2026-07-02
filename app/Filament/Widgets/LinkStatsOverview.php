@@ -54,12 +54,10 @@ class LinkStatsOverview extends StatsOverviewWidget
         ];
 
         if (auth()->user()->isAdmin()) {
-            array_merge($stats, [
-                Stat::make(trans('admin.users'), number_format(User::query()->count()))
-                    ->description(trans('admin.registered_in_system'))
-                    ->descriptionIcon(Heroicon::Users)
-                    ->color('gray'),
-            ]);
+            $stats[] = Stat::make(trans('admin.users'), number_format(User::query()->count()))
+                ->description(trans('admin.registered_in_system'))
+                ->descriptionIcon(Heroicon::Users)
+                ->color('gray');
         }
 
         return $stats;
