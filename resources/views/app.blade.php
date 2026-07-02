@@ -46,12 +46,9 @@
             {{-- Decorative geometry (desktop only) --}}
             <div class="absolute top-[18%] left-[8%] hidden md:block w-px h-40 bg-gradient-to-b from-transparent via-accent/15 to-transparent opacity-0 animate-[fadeUp_1.2s_ease_0.6s_forwards]"></div>
             <div class="absolute top-[22%] right-[12%] hidden md:block w-px h-24 bg-gradient-to-b from-transparent via-border/30 to-transparent opacity-0 animate-[fadeUp_1.2s_ease_0.8s_forwards]"></div>
-            <div class="absolute top-[30%] right-[22%] hidden md:block w-[5px] h-[5px] rounded-full bg-accent/30 opacity-0"
-                 style="animation: fadeUp 0.8s ease 1s forwards, float 6s ease-in-out infinite 1s"></div>
-            <div class="absolute bottom-[28%] left-[18%] hidden md:block w-[3px] h-[3px] rounded-full bg-accent/20 opacity-0"
-                 style="animation: fadeUp 0.8s ease 1.2s forwards, float-alt 8s ease-in-out infinite 1.2s"></div>
-            <div class="absolute top-[45%] left-[6%] hidden md:block w-[4px] h-[4px] rounded-full border border-accent/20 opacity-0"
-                 style="animation: fadeUp 0.8s ease 1.4s forwards, float 10s ease-in-out infinite 1.4s"></div>
+            <div class="absolute top-[30%] right-[22%] hidden md:block w-[5px] h-[5px] rounded-full bg-accent/30 opacity-0" style="animation: fadeUp 0.8s ease 1s forwards, float 6s ease-in-out infinite 1s"></div>
+            <div class="absolute bottom-[28%] left-[18%] hidden md:block w-[3px] h-[3px] rounded-full bg-accent/20 opacity-0" style="animation: fadeUp 0.8s ease 1.2s forwards, float-alt 8s ease-in-out infinite 1.2s"></div>
+            <div class="absolute top-[45%] left-[6%] hidden md:block w-[4px] h-[4px] rounded-full border border-accent/20 opacity-0" style="animation: fadeUp 0.8s ease 1.4s forwards, float 10s ease-in-out infinite 1.4s"></div>
 
             {{-- Central gradient orb --}}
             <div class="absoluteleft-1/2top-0-translate-x-1/2pointer-events-nonew-[110vw]max-w-[750px]aspect-squarebg-[radial-gradient(circle,rgba(255,106,0,0.09)_0%,rgba(255,106,0,0.02)_40%,transparent_70%)]"></div>
@@ -67,8 +64,7 @@
                 @lang('web.hero_title_part1')<br>
                 <span class="text-accent italic relative inline-block">
                     @lang('web.hero_title_part2')
-                    <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-accent/50 via-accent/30 to-transparent origin-left opacity-0"
-                          style="animation: draw-line 1s ease 0.9s forwards"></span>
+                    <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-accent/50 via-accent/30 to-transparent origin-left opacity-0" style="animation: draw-line 1s ease 0.9s forwards"></span>
                 </span>
             </h1>
 
@@ -79,8 +75,7 @@
 
             {{-- CTA --}}
             @if(filament()->hasRegistration())
-                <a href="{{ filament()->getRegistrationUrl() }}"
-                   class="group relative opacity-0 inline-flex items-center gap-3.5 py-[18px] px-12 bg-accent text-bg font-mono-alt text-[0.75rem] tracking-[0.1em] uppercase no-underline rounded-xl transition-all duration-500 hover:shadow-[0_0_80px_rgba(255,106,0,0.25),0_8px_32px_rgba(255,106,0,0.15)] hover:-translate-y-[3px] active:translate-y-0 animate-[fadeUp_0.7s_ease_0.65s_forwards]">
+                <a href="{{ filament()->getRegistrationUrl() }}" class="group relative opacity-0 inline-flex items-center gap-3.5 py-[18px] px-12 bg-accent text-bg font-mono-alt text-[0.75rem] tracking-[0.1em] uppercase no-underline rounded-xl transition-all duration-500 hover:shadow-[0_0_80px_rgba(255,106,0,0.25),0_8px_32px_rgba(255,106,0,0.15)] hover:-translate-y-[3px] active:translate-y-0 animate-[fadeUp_0.7s_ease_0.65s_forwards]">
                     @lang('web.hero_cta')
                     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1">
@@ -92,8 +87,7 @@
             {{-- Scroll hint --}}
             <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-0 animate-[fadeUp_0.7s_ease_1.2s_forwards]">
                 <span class="font-mono-alt text-[0.5rem] text-text-muted/35 tracking-[0.25em] uppercase">Scroll</span>
-                <div class="w-px h-10 bg-gradient-to-b from-text-muted/20 to-transparent"
-                     style="animation: scroll-hint 2.5s ease-in-out infinite"></div>
+                <div class="w-px h-10 bg-gradient-to-b from-text-muted/20 to-transparent" style="animation: scroll-hint 2.5s ease-in-out infinite"></div>
             </div>
         </section>
 

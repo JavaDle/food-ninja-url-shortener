@@ -19,5 +19,5 @@ return [
     'feature_3_title'     => 'Analytics',
     'feature_3_text'      => 'Track clicks, locations, devices, and traffic sources in real time.',
 
-    'footer_text'         => '© 2025 Food Ninja. All rights reserved.',
+    'footer_text'         => 'All rights reserved.',
 ];
