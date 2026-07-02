@@ -31,10 +31,11 @@ class VisitsTable
                     ->tooltip(fn($record) => $record->country),
 
 
-                AdminTextColumn::make('city')
-                    ->label(trans('admin.city'))
+                AdminTextColumn::make('ip_address')
+                    ->label(trans('admin.ip_address'))
                     ->copyable()
-                    ->tooltip(fn($record) => $record->city),
+                    ->tooltip(fn($record) => $record->ip)
+                    ->badge(),
 
                 AdminTextColumn::make('referer')
                     ->label(trans('admin.referer'))

@@ -13,6 +13,7 @@ class AdminTextColumn extends TextColumn
         $this->label(trans('admin.title'))
             ->sortable()
             ->searchable()
+            ->default('#-#-#-#-#-#')
             ->wrap();
     }
 }
