@@ -47,14 +47,13 @@ class CacheClearButton extends Component
 
         try {
             match ($driver) {
-                'file' => $size = 'framework/cache/data'
-                        |> storage_path(...)
-                        |> File(...)
-                        |> (fn($x) => array_map(fn($f) => $f->getSize(), $x))
-                        |> array_sum(...),
-                'database' => $size = (int)DB::table(config('cache.stores.database.table', 'cache'))
+                'file' => $size = array_sum(array_map(
+                    fn ($f) => $f->getSize(),
+                    File::allFiles(storage_path('framework/cache/data'))
+                )),
+                'database' => $size = (int) DB::table(config('cache.stores.database.table', 'cache'))
                     ->sum(DB::raw('LENGTH(value)')),
-                'redis' => $size = (int)(Redis::command('INFO', ['memory'])['used_memory'] ?? 0),
+                'redis' => $size = (int) (Redis::command('INFO', ['memory'])['used_memory'] ?? 0),
                 default => $size = 0,
             };
         } catch (Throwable) {
